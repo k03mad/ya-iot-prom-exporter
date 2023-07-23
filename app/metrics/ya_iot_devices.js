@@ -18,7 +18,6 @@ export default new client.Gauge({
 
     async collect() {
         const {devices} = await IoT.userInfo();
-        const data = [];
 
         await Promise.all(devices.map(async device => {
             const [householdName, roomName] = await Promise.all([
@@ -29,30 +28,23 @@ export default new client.Gauge({
             const save = ['capabilities', 'properties'];
 
             save.forEach(stateType => {
-                device[stateType].forEach(elem => {
-                    if (elem.state?.instance) {
-                        const value = getNumIfBool(elem.state.value);
+                device[stateType].forEach(data => {
+                    if (data.state?.instance) {
+                        const value = getNumIfBool(data.state.value);
 
                         if (typeof value === 'number') {
-                            data.push({
-                                labels: [
-                                    householdName,
-                                    roomName,
-                                    device.name,
-                                    device.type,
-                                    stateType,
-                                    elem.state.instance,
-                                ],
-                                value,
-                            });
+                            this.labels(
+                                householdName,
+                                roomName,
+                                device.name,
+                                device.type,
+                                stateType,
+                                data.state.instance,
+                            ).set(value);
                         }
                     }
                 });
             });
         }));
-
-        data
-            .sort((a, b) => a.labels.join().localeCompare(b.labels.join()))
-            .forEach(elem => this.labels(...elem.labels).set(elem.value));
     },
 });
