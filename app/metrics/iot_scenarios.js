@@ -15,7 +15,7 @@ export default new client.Gauge({
         scenarios.forEach(scenario => {
             const value = getNumIfBool(scenario.is_active);
 
-            if (Number(value)) {
+            if (typeof value === 'number') {
                 this.labels(scenario.name).set(value);
             }
         });

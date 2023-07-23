@@ -34,7 +34,7 @@ export default new client.Gauge({
                     if (data.state?.instance) {
                         const value = getNumIfBool(data.state.value);
 
-                        if (Number(value)) {
+                        if (typeof value === 'number') {
                             this.labels(
                                 householdName,
                                 roomName,
