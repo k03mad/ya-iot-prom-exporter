@@ -1,7 +1,6 @@
 import {requestCache} from '@k03mad/request';
 
 import env from '../../env.js';
-import {convertToArray} from '../helpers/array.js';
 
 /** */
 class IoT {
@@ -58,15 +57,6 @@ class IoT {
     async getRoomNameById(id) {
         const {rooms} = await this.userInfo();
         return rooms.find(room => room.id === id).name;
-    }
-
-    /**
-     * @param {string|string[]} ids
-     * @returns {Promise<string>}
-     */
-    async getGroupsNamesByIds(ids) {
-        const {groups} = await this.userInfo();
-        return convertToArray(ids).map(id => groups.find(group => group.id === id)?.name).join(' + ');
     }
 
 }

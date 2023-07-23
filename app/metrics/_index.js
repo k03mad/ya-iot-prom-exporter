@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
-import iot_devices from './iot_devices.js';
-import iot_scenarios from './iot_scenarios.js';
+import ya_iot_devices from './ya_iot_devices.js';
+import ya_iot_scenarios from './ya_iot_scenarios.js';
 
 export default {
-    iot_devices,
-    iot_scenarios,
+    ya_iot_devices,
+    ya_iot_scenarios,
 };

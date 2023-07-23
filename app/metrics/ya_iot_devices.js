@@ -10,7 +10,6 @@ export default new client.Gauge({
     labelNames: [
         'household',
         'room',
-        'groups',
         'deviceName',
         'deviceType',
         'stateType',
@@ -21,10 +20,9 @@ export default new client.Gauge({
         const {devices} = await IoT.userInfo();
 
         await Promise.all(devices.map(async device => {
-            const [householdName, roomName, groupsNames] = await Promise.all([
+            const [householdName, roomName] = await Promise.all([
                 IoT.getHouseholdNameById(device.household_id),
                 IoT.getRoomNameById(device.room),
-                IoT.getGroupsNamesByIds(device.groups),
             ]);
 
             const save = ['capabilities', 'properties'];
@@ -38,7 +36,6 @@ export default new client.Gauge({
                             this.labels(
                                 householdName,
                                 roomName,
-                                groupsNames,
                                 device.name,
                                 device.type,
                                 stateType,
