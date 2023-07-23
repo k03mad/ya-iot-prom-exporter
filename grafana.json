@@ -940,7 +940,7 @@
               }
             ]
           },
-          "unit": "kelvin"
+          "unit": "percent"
         },
         "overrides": []
       },
@@ -1152,6 +1152,6 @@
   "timezone": "",
   "title": "Ya IoT",
   "uid": "d4ae02b7-6195-4a38-847a-7d6011984354",
-  "version": 8,
+  "version": 9,
   "weekStart": ""
 }
