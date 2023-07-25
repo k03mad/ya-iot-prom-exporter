@@ -1,7 +1,9 @@
+[ctrld-prom-exporter](https://github.com/k03mad/ctrld-prom-exporter) • [tin-invest-prom-exporter](https://github.com/k03mad/tin-invest-prom-exporter) • ya-iot-prom-exporter
+
 # [Yandex IoT — Prometheus] exporter
 
-— [Create new app](https://oauth.yandex.ru/client/new) **with access `iot:view`** \
-— Get token: `https://oauth.yandex.ru/authorize?response_type=token&client_id=1234321&scope=iot:view` **replace `client_id` parameter with created app ID**\
+— [Create new app](https://oauth.yandex.ru/client/new) with access `iot:view` \
+— Get token: `https://oauth.yandex.ru/authorize?response_type=token&client_id=1234321&scope=iot:view` (replace `client_id` parameter with created app ID) \
 — [Use correct Node.JS version](.nvmrc) \
 — Start exporter:
 
