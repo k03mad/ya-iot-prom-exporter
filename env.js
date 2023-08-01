@@ -22,7 +22,7 @@ if (!env.iot.token) {
         errorText(' Yandex IoT API token is not specified '),
         `> use env variable: ${codeText(TOKEN_ENV_NAME)}`,
         `> or npm parameter: ${codeText(`--${TOKEN_NPM_PARAM_NAME}`)}`,
-        '> see readme',
+        '> see readme'
     ]);
 }
 
