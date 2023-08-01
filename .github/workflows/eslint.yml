@@ -20,7 +20,7 @@ on:
 
 jobs:
   eslint:
-    name: Run eslint scanning
+    name: Run ESLint scanning
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -30,16 +30,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup NodeJS and NPM
+      - name: Install NodeJS
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
+
+      - name: Install dependencies
+        run: npm run setup
+        continue-on-error: true
 
       - name: Run ESLint
         run: npm run lint:github
         continue-on-error: true
 
-      - name: Upload analysis results to GitHub
+      - name: Upload results
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: eslint-results.sarif
