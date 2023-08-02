@@ -10,6 +10,8 @@ export default new client.Gauge({
     labelNames: ['name'],
 
     async collect() {
+        this.reset();
+
         const {scenarios} = await IoT.userInfo();
 
         scenarios.forEach(scenario => {

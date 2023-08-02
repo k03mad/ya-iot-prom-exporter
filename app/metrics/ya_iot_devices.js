@@ -17,6 +17,8 @@ export default new client.Gauge({
     ],
 
     async collect() {
+        this.reset();
+
         const {devices} = await IoT.userInfo();
 
         await Promise.all(devices.map(async device => {
