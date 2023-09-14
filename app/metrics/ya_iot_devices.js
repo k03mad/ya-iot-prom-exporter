@@ -1,10 +1,8 @@
-import client from 'prom-client';
-
 import IoT from '../api/iot.js';
 import {getNumIfBool} from '../helpers/bool.js';
 import {getCurrentFilename} from '../helpers/paths.js';
 
-export default new client.Gauge({
+export default {
     name: getCurrentFilename(import.meta.url),
     help: 'Devices',
     labelNames: [
@@ -16,8 +14,8 @@ export default new client.Gauge({
         'stateInstance',
     ],
 
-    async collect() {
-        this.reset();
+    async collect(ctx) {
+        ctx.reset();
 
         const {devices} = await IoT.userInfo();
 
@@ -35,7 +33,7 @@ export default new client.Gauge({
                         const value = getNumIfBool(data.state.value);
 
                         if (typeof value === 'number') {
-                            this.labels(
+                            ctx.labels(
                                 householdName,
                                 roomName,
                                 device.name,
@@ -49,4 +47,4 @@ export default new client.Gauge({
             });
         }));
     },
-});
+};
