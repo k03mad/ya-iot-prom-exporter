@@ -18,7 +18,6 @@ if (env.debug) {
 app.use(helmet());
 app.use(compression());
 
-
 app.get('/metrics', async (req, res) => {
     const metrics = await register.metrics();
     res.send(metrics);
