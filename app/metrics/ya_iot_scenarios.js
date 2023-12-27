@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/filename-case */
+
 import IoT from '../api/iot.js';
 import {getNumIfBool} from '../helpers/bool.js';
 import {getCurrentFilename} from '../helpers/paths.js';

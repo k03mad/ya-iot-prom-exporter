@@ -35,13 +35,6 @@ class IoT {
     }
 
     /**
-     * @returns {Promise<object>}
-     */
-    userInfo() {
-        return this._getCache({path: 'user/info'});
-    }
-
-    /**
      * @param {string} id
      * @returns {Promise<string>}
      */
@@ -57,6 +50,13 @@ class IoT {
     async getRoomNameById(id) {
         const {rooms} = await this.userInfo();
         return rooms.find(room => room.id === id).name;
+    }
+
+    /**
+     * @returns {Promise<object>}
+     */
+    userInfo() {
+        return this._getCache({path: 'user/info'});
     }
 
 }
