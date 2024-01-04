@@ -12,6 +12,10 @@
 — Start exporter:
 
 ```bash
+# one time
+npm i pnpm -g
+npm run setup
+# start
 npm run start --token=y0_1234321 --port=11000
 # or with envs
 YA_IOT_API_TOKEN=y0_1234321 YA_IOT_EXPORTER_PORT=11000 npm run start
