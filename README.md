@@ -13,8 +13,8 @@
 
 ```bash
 # one time
-npm i pnpm -g
 npm run setup
+
 # start
 npm run start --token=y0_1234321 --port=11000
 # or with envs
