@@ -23,4 +23,4 @@ YA_IOT_API_TOKEN=y0_1234321 YA_IOT_EXPORTER_PORT=11000 npm run start
 ```
 
 — Update Prometheus `scrape_configs` \
-— [Import Grafana dashboard](grafana.json)
+— [Import Grafana dashboard](grafana)
