@@ -20,6 +20,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/git/ya-iot-prom-exporter
+            git reset --hard
             git pull
             ~/.nvm/nvm-exec npm run setup
             systemctl restart ya-iot-exporter.service
