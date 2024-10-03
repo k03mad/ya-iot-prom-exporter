@@ -8,12 +8,12 @@ const TOKEN_NPM_PARAM_NAME = 'token';
 const env = {
     server: {
         port: process.env.npm_config_port
-        || process.env.YA_IOT_EXPORTER_PORT
-        || 11_010,
+            || process.env.YA_IOT_EXPORTER_PORT
+            || 11_010,
     },
     iot: {
         token: process.env[TOKEN_ENV_NAME]
-        || process.env[`npm_config_${TOKEN_NPM_PARAM_NAME}`],
+            || process.env[`npm_config_${TOKEN_NPM_PARAM_NAME}`],
     },
     debug: process.env.DEBUG,
 };
